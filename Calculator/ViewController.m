@@ -63,7 +63,6 @@
 - (IBAction)fifteenPercentWasTapped:(id)sender {
     NSLog(@"15 Percent");
     [self tipAmountSelected:.15];
-
 }
 
 //the user tapped 20%
@@ -91,7 +90,6 @@
     NSLog(@"2 Was Tapped");
     //the user tapped the "2" button, so pass an int of 2 to the numberSelected method
     [self numberSelected:2];
-
 }
 
 //the user tapped three
@@ -99,7 +97,6 @@
     NSLog(@"3 Was Tapped");
     //the user tapped the "3" button, so pass an int of 3 to the numberSelected method
     [self numberSelected:3];
-
 }
 
 //the user tapped divide add
@@ -114,7 +111,6 @@
     NSLog(@"4 Was Tapped");
     //the user tapped the "4" button, so pass an int of 4 to the numberSelected method
     [self numberSelected:4];
-    
 }
 
 //the user tapped five
@@ -136,7 +132,6 @@
     NSLog(@"- Was Tapped");
     //the user tapped "-" so pass a 3 to represent this
     [self equationTypeSelected:3];
-
 }
 
 //the user tapped seven
@@ -151,7 +146,6 @@
     NSLog(@"8 Was Tapped");
     //the user tapped the "8" button, so pass an int of 8 to the numberSelected method
     [self numberSelected:8];
-
 }
 
 - (IBAction)nineWasTapped:(id)sender {
@@ -176,7 +170,6 @@
 - (IBAction)clearWasTapped:(id)sender {
     NSLog(@"C Was Tapped");
     [self clearCalcuator];
-
 }
 
 //the user tapped decimal point
@@ -203,7 +196,6 @@
     [self disableEquationTypeButtons];
     
     self.isNewEquation = YES;
-
 }
 
 //Has the calculator object insert an equation type itself and updates the viewControlelr accordingly
@@ -241,6 +233,16 @@
 //Has the calculator object insert a tip amount to itself and updates the viewControlelr accordingly
 -(void)tipAmountSelected:(float)tipAmount{
     NSLog(@"viewController tipamount logic started for tip amount %f", tipAmount);
+    float tip = [self.calculator handleTipAmountSelected:tipAmount];
+    
+    //display answer on textView but only two decimals since its a dollar amount
+    self.textView.text = [NSString stringWithFormat:@"%.02f", tip];
+    NSLog(@"tip = %@", self.textView.text);
+    
+    self.isNewEquation = YES;
+    
+    //let them interact with the answer
+    [self enableButtons];
 
 }
 
@@ -328,6 +330,8 @@
 
 //enable equation buttons now that you have a number to work with
 -(void)enableButtons{
+    
+    //only enable them if this is a new equation, if not for now we require them to click "=" before clicking another math symbol
     if (self.isNewEquation == YES){
 
         //set enable to true so they can be clicked

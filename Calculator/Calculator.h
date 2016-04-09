@@ -18,7 +18,7 @@
 -(void)clearCalculator;
 -(void)handleEquationType:(int)equationType;
 -(void)handleNumberSelected:(int)number;
--(void)handleTipAmountSelected:(float)tipAmount;
+-(float)handleTipAmountSelected:(float)tipAmount;
 -(void)handleDecimal;
 -(int)solveEquation;
 

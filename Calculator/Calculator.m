@@ -50,9 +50,7 @@
     }
     
     self.runningTotal = answer;
-    
     [self resetCalculator];
-    
     return self.runningTotal;
 }
 
@@ -68,8 +66,12 @@
     self.equationType = 0;
 }
 
--(void)handleTipAmountSelected:(float)tipAmount{
+-(float)handleTipAmountSelected:(float)tipAmount{
+    float answer = tipAmount * self.variable;
+    self.runningTotal = answer;
+    [self resetCalculator];
     
+    return self.runningTotal;
 }
 
 @end
