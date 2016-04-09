@@ -10,9 +10,9 @@
 
 @implementation Calculator
 
--(void)handleNumberSelected:(int)number{
+-(void)handleNumberSelected:(float)number{
     self.variable = number;
-    NSLog(@"Calculator handled number %d", self.variable);
+    NSLog(@"Calculator handled number %f", self.variable);
 }
 
 -(void)handleEquationType:(int)equationType{
@@ -23,13 +23,18 @@
     self.runningTotal = self.variable;
     
     NSLog(@"Calculator handled equationType %d", self.equationType);
-    NSLog(@"Calculator set runningTotal to %d", self.runningTotal);
+    NSLog(@"Calculator set runningTotal to %f", self.runningTotal);
 
 }
 
--(int)solveEquation{
+-(void)handleDecimal:numberString{
+    NSString *floatString = [NSString stringWithFormat:@"%@0",numberString];
+    self.variable = [floatString floatValue];
+}
+
+-(float)solveEquation{
     
-    int answer = 0;
+    float answer = 0;
     
     if (self.equationType == 1){ //divide
         

@@ -12,14 +12,14 @@
 
 
 @property int equationType;
-@property int runningTotal;
-@property int variable;
+@property float runningTotal;
+@property float variable;
 
 -(void)clearCalculator;
 -(void)handleEquationType:(int)equationType;
--(void)handleNumberSelected:(int)number;
+-(void)handleNumberSelected:(float)number;
 -(float)handleTipAmountSelected:(float)tipAmount;
--(void)handleDecimal;
--(int)solveEquation;
+-(void)handleDecimal:(NSString*)numberString;
+-(float)solveEquation;
 
 @end

@@ -223,7 +223,7 @@
     [self.textView insertText:numberCharacter];
     
     //convert the string in the textView into an int so we can have the total int on the textView and not just the number the user tapped. Then send that int when we call handleNumberSelected so the calculator object can handle the logic of what to do with this number
-    [self.calculator handleNumberSelected:[self.textView.text intValue]];
+    [self.calculator handleNumberSelected:[self.textView.text floatValue]];
     NSLog(@"self.textView.text = %@",self.textView.text);
     
     //we now have a number in our textView so let the user click buttons that needed numbers to interact with
@@ -249,7 +249,11 @@
 //Has the calculator object insert a decimal point to itself and updates the viewControlelr accordingly
 -(void)handleDecimal{
     NSLog(@"viewController decimal logic started");
-
+    
+    if (![self.textView.text containsString:@"."]){
+        [self.textView insertText:@"."];
+        [self.calculator handleDecimal:self.textView.text];
+    }
 }
 
 //Has the calculator object answer its equation and updates the viewController accordingly
