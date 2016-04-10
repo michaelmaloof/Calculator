@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *decimalButton;
 @property (weak, nonatomic) IBOutlet UIButton *subtractButton;
+@property (weak, nonatomic) IBOutlet UIButton *zeroButton;
 
 @property Calculator *calculator;
 
@@ -50,8 +51,6 @@
 -Equals Click Whenever Bug (click 1, click enter, now it equals 0)
 
 -big numbers multiplied don't work
-
--no zero button
  
 */
 
@@ -194,6 +193,12 @@
     [self handleDecimal];
 }
 
+//the user tapped 0
+- (IBAction)zeroWasTapped:(id)sender {
+    NSLog(@"0 Was Tapped");
+    //the user tapped the "0" button, so pass an int of 0 to the numberSelected method
+    [self numberSelected:0];
+}
 
 
 #pragma Calculator Logic
