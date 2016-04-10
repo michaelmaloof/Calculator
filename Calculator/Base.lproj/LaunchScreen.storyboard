@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by Jetpack Dinosaur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-1D-0rC">
-                                <rect key="frame" x="190" y="569" width="220" height="21"/>
+                                <rect key="frame" x="190" y="549" width="220" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0Sv-YY-hoX"/>
                                     <constraint firstAttribute="width" constant="220" id="nkD-NY-rtZ"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.68627450980000004" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="kDz-1D-0rC" secondAttribute="bottom" constant="10" id="B5s-nC-zVu"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="kDz-1D-0rC" secondAttribute="bottom" constant="30" id="B5s-nC-zVu"/>
                             <constraint firstItem="kDz-1D-0rC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NRT-eq-LiO"/>
                             <constraint firstItem="M1a-Ag-eLT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Owh-My-95n"/>
                             <constraint firstItem="M1a-Ag-eLT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jxZ-VI-GZy"/>

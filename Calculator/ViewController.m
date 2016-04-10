@@ -39,6 +39,22 @@
 
 @end
 
+/*FIXME: Current Bugs in the App
+
+-Character Limit On Answers
+
+-Float Error (5.3 + .8 != 6)
+
+-Float how many decimals to show
+
+-Equals Click Whenever Bug (click 1, click enter, now it equals 0)
+
+-big numbers multiplied don't work
+
+-no zero button
+ 
+*/
+
 @implementation ViewController
 
 //the app finished loading this viewController (or screen)
@@ -219,15 +235,21 @@
     
     //turn the int the user selected into a string to display on self.textView
     NSString *numberCharacter = [NSString stringWithFormat:@"%d",number];
-    //insert the string into self.textView
-    [self.textView insertText:numberCharacter];
     
-    //convert the string in the textView into an int so we can have the total int on the textView and not just the number the user tapped. Then send that int when we call handleNumberSelected so the calculator object can handle the logic of what to do with this number
-    [self.calculator handleNumberSelected:[self.textView.text floatValue]];
-    NSLog(@"self.textView.text = %@",self.textView.text);
-    
-    //we now have a number in our textView so let the user click buttons that needed numbers to interact with
+    //character limit on textView
+    if (self.textView.text.length < 16){
+        
+        //insert the string into self.textView
+        [self.textView insertText:numberCharacter];
+        
+        //convert the string in the textView into an int so we can have the total int on the textView and not just the number the user tapped. Then send that int when we call handleNumberSelected so the calculator object can handle the logic of what to do with this number
+        [self.calculator handleNumberSelected:[self.textView.text floatValue]];
+        NSLog(@"self.textView.text = %@",self.textView.text);
+        
+        //we now have a number in our textView so let the user click buttons that needed numbers to interact with
         [self enableButtons];
+        
+    }
 }
 
 //Has the calculator object insert a tip amount to itself and updates the viewControlelr accordingly
